@@ -53,8 +53,16 @@
           <li><a href="#contact"  class="nav-link" id="navLinkContact">Contact</a></li>
         </ul>
 
-        <!-- CTA -->
-        <div class="nav-cta">
+        <!-- Cart + Loyalty + CTA -->
+        <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="nav-loyalty-pill" id="navLoyaltyPill" title="Your loyalty points">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span id="navLoyaltyPts">0 pts</span>
+          </div>
+          <button class="nav-cart-btn" id="cartOpenBtn" aria-label="Open shopping cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3.5 6.5h17M16 10a4 4 0 01-8 0"/></svg>
+            <span class="cart-badge hidden" id="cartBadge">0</span>
+          </button>
           <button class="btn btn-terracotta btn-pill btn-sm btn-open-reserve" id="navReserveBtn" data-event-type="Dining Table">
             Reserve a Table
           </button>
@@ -88,6 +96,253 @@
     <div>
       <button class="btn btn-terracotta btn-pill btn-open-reserve" id="mobReserveBtn" data-event-type="Dining Table" style="width:100%;justify-content:center;">Reserve a Table</button>
     </div>
+  </div>
+
+  <!-- ====================================================================
+       CART DRAWER
+       ==================================================================== -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Your Cart">
+    <div class="cart-drawer-head">
+      <div class="cart-drawer-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3.5" y1="6" x2="20.5" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Your Order
+        <span class="cart-item-count-badge" id="cartItemCount">0 items</span>
+      </div>
+      <button class="cart-drawer-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div class="cart-empty-state" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3.5" y1="6" x2="20.5" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <h4>Your cart is empty</h4>
+        <p>Add items from our menu to start your order.</p>
+        <a href="#menu" class="btn btn-terracotta btn-sm" onclick="document.getElementById('cartCloseBtn').click()">Browse Menu</a>
+      </div>
+      <div id="cartItemsList"></div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-savings hidden" id="cartSavings">Combo discount: −₹30</div>
+      <div class="cart-total-row">
+        <span class="cart-total-label">Order Total</span>
+        <span class="cart-total-amount" id="cartTotal">₹0</span>
+      </div>
+      <div class="cart-pts-earn" id="cartPointsEarn">+0 loyalty points on this order</div>
+      <button class="btn btn-terracotta cart-checkout-btn" id="cartCheckoutBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Proceed to Checkout
+      </button>
+      <span class="cart-clear-link" id="cartClearBtn">Clear all items</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       UPSELL POPUP
+       ==================================================================== -->
+  <div class="upsell-popup" id="upsellPopup" role="dialog" aria-label="Recommended pairing">
+    <div class="upsell-inner">
+      <img src="" alt="Suggested item" class="upsell-img" id="upsellImg" loading="lazy">
+      <div class="upsell-body">
+        <div class="upsell-label">🍃 Pairs Perfectly With</div>
+        <div class="upsell-name" id="upsellName">Lavender Shortbread</div>
+        <div class="upsell-desc" id="upsellDesc">Add it to complete your order.</div>
+        <div class="upsell-actions">
+          <span class="upsell-price" id="upsellPrice">₹95</span>
+          <button class="upsell-add-btn" id="upsellAddBtn"><span id="upsellSave">Add to combo</span></button>
+          <button class="upsell-dismiss" id="upsellDismissBtn">No thanks</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CHECKOUT MODAL
+       ==================================================================== -->
+  <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+    <div class="checkout-box">
+
+      <div class="checkout-head">
+        <h3>Order Checkout</h3>
+        <button class="modal-close" id="chkCloseBtn" aria-label="Close checkout" style="position:static;">&times;</button>
+      </div>
+
+      <!-- Step Progress -->
+      <div class="chk-steps-bar">
+        <div class="chk-step-dot active current" id="chkDot1">1</div>
+        <div class="chk-step-line"></div>
+        <div class="chk-step-dot" id="chkDot2">2</div>
+        <div class="chk-step-line"></div>
+        <div class="chk-step-dot" id="chkDot3">3</div>
+        <div class="chk-step-line"></div>
+        <div class="chk-step-dot" id="chkDot4">✓</div>
+      </div>
+
+      <div class="chk-body">
+
+        <!-- Step 1: Review Order -->
+        <div class="chk-step chk-step-active" id="chkStep1">
+          <p class="pay-section-label" style="margin-bottom:1rem;">📋 Review Your Order</p>
+          <div id="checkoutSummary"></div>
+        </div>
+
+        <!-- Step 2: Experience Add-Ons -->
+        <div class="chk-step" id="chkStep2">
+          <p class="pay-section-label">✨ Enhance Your Experience</p>
+          <p style="font-size:0.85rem;color:var(--clr-muted);margin-bottom:1rem;">Optional add-ons to make your visit extra special.</p>
+          <div class="addon-grid">
+            <label class="addon-card">
+              <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-001">
+              <img src="assets/images/service-birthday.jpg" alt="Custom Cake" class="addon-card-img" loading="lazy">
+              <div class="addon-card-body">
+                <div class="addon-card-name">Custom Celebration Cake</div>
+                <div class="addon-card-desc">3-tier custom cake · 48hr notice required</div>
+              </div>
+              <div class="addon-card-price">₹1,200</div>
+            </label>
+            <label class="addon-card">
+              <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-002">
+              <img src="assets/images/service-bridal.jpg" alt="Floral Centrepiece" class="addon-card-img" loading="lazy">
+              <div class="addon-card-body">
+                <div class="addon-card-name">Floral Centrepiece</div>
+                <div class="addon-card-desc">Fresh seasonal florals for your table</div>
+              </div>
+              <div class="addon-card-price">₹650</div>
+            </label>
+            <label class="addon-card">
+              <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-003">
+              <img src="assets/images/service-bridal.jpg" alt="Photography Package" class="addon-card-img" loading="lazy">
+              <div class="addon-card-body">
+                <div class="addon-card-name">Event Photography</div>
+                <div class="addon-card-desc">2-hour session with our in-house photographer</div>
+              </div>
+              <div class="addon-card-price">₹1,800</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Customer Details + Payment -->
+        <div class="chk-step" id="chkStep3">
+          <p class="pay-section-label">👤 Your Details</p>
+          <div class="chk-form-row" style="margin-bottom:1rem;">
+            <div>
+              <label class="chk-form-label" for="chkName">Full Name *</label>
+              <input type="text" id="chkName" class="chk-form-input" placeholder="e.g. Priya Sharma">
+            </div>
+            <div>
+              <label class="chk-form-label" for="chkPhone">Phone *</label>
+              <input type="tel" id="chkPhone" class="chk-form-input" placeholder="e.g. 8686745411">
+            </div>
+          </div>
+          <div class="chk-form-row full" style="margin-bottom:1.5rem;">
+            <div>
+              <label class="chk-form-label" for="chkPickupTime">Pickup / Arrival Time</label>
+              <select id="chkPickupTime" class="chk-form-input">
+                <option value="ASAP">As soon as possible</option>
+                <option value="30 mins">In ~30 minutes</option>
+                <option value="1 hour">In ~1 hour</option>
+                <option value="2 hours">In ~2 hours</option>
+                <option value="Tomorrow morning">Tomorrow morning</option>
+              </select>
+            </div>
+          </div>
+          <p class="chk-form-error hidden" id="chkFormError">Please enter your name and phone number.</p>
+
+          <p class="pay-section-label">💳 Choose Payment Method</p>
+          <div class="pay-methods-grid">
+            <button class="pay-method-btn active" data-method="upi" id="payUpi">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#097939"/>
+                <text x="50%" y="58%" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Arial">UPI</text>
+              </svg>
+              <div>
+                <div class="pay-method-label">UPI</div>
+                <div class="pay-method-sub">Pay via any UPI app</div>
+              </div>
+            </button>
+            <button class="pay-method-btn" data-method="gpay" id="payGpay">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#fff" stroke="#e0e0e0"/>
+                <text x="50%" y="58%" text-anchor="middle" fill="#4285F4" font-size="11" font-weight="bold" font-family="Arial">GPay</text>
+              </svg>
+              <div>
+                <div class="pay-method-label">Google Pay</div>
+                <div class="pay-method-sub">Fast &amp; secure</div>
+              </div>
+            </button>
+            <button class="pay-method-btn" data-method="applepay" id="payApple">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#000"/>
+                <path d="M28.5 14.5c1.2-1.5 2-3.5 1.8-5.5-1.8.1-4 1.2-5.3 2.7-1.1 1.3-2.1 3.4-1.8 5.4 2 .1 4-1.1 5.3-2.6z" fill="white"/>
+                <path d="M34.5 34.5c-.8 1.8-1.7 3.5-3 4.8-1.8 1.8-3.7 1.9-5.5.9-1.9-1-3.6-1-5.5 0-2 1.1-3.8.8-5.5-.9-4.2-4.4-6.8-13.2-2.8-17.8 1.8-2.1 4.2-3.3 6.5-3.3 2 0 3.3.9 4.8.9 1.4 0 2.3-.9 4.4-.9 2 0 4.1 1 5.6 2.7-4.9 2.7-4.1 9.9.5 12.1-.3.9-.8 1.9-1.5 2.8" fill="white"/>
+              </svg>
+              <div>
+                <div class="pay-method-label">Apple Pay</div>
+                <div class="pay-method-sub">One-tap checkout</div>
+              </div>
+            </button>
+            <button class="pay-method-btn" data-method="card" id="payCard">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#4B006E"/>
+                <rect x="6" y="14" width="36" height="20" rx="3" stroke="white" stroke-width="2"/>
+                <line x1="6" y1="20" x2="42" y2="20" stroke="white" stroke-width="2"/>
+                <rect x="10" y="24" width="8" height="4" rx="1" fill="white"/>
+              </svg>
+              <div>
+                <div class="pay-method-label">Credit / Debit Card</div>
+                <div class="pay-method-sub">Visa, Mastercard, Rupay</div>
+              </div>
+            </button>
+          </div>
+
+          <div class="upi-hint show" id="upiHint">
+            UPI ID: <span class="upi-id">aster@upi</span> &nbsp;·&nbsp; Amount will be confirmed on WhatsApp after order placement.
+          </div>
+
+          <div class="pay-secure-badge">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure checkout · Orders confirmed via WhatsApp
+          </div>
+        </div>
+
+        <!-- Step 4: Success -->
+        <div class="chk-step" id="chkStep4">
+          <div class="chk-success">
+            <div class="chk-success-icon">✓</div>
+            <h4 class="chk-success-title">Order Placed!</h4>
+            <p class="chk-success-sub">Your reference is <strong id="chkRefCode">ORD-000000</strong>.<br>Our team will confirm via WhatsApp within 5 minutes.</p>
+            <div class="chk-loyalty-earned">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              You earned <strong id="chkEarnedPts">0</strong> loyalty points!
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <a href="#" class="btn btn-lg" id="chkWhatsappBtn" target="_blank" rel="noopener noreferrer" style="background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.4);justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Confirm via WhatsApp
+              </a>
+              <button class="btn btn-outline-terracotta" id="chkDoneBtn" onclick="document.getElementById('checkoutModal').classList.remove('active');document.body.style.overflow='';">Done</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="checkout-foot" id="checkoutFoot">
+        <button class="chk-back-btn" id="chkBackBtn">← Back</button>
+        <button class="btn btn-terracotta chk-next-btn" id="chkNextBtn">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       LOYALTY TOAST + STOCK TOAST
+       ==================================================================== -->
+  <div class="loyalty-toast" id="loyaltyToast">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <span>+<span id="toastPoints">0</span> pts earned! Total: <strong><span id="toastTotalPoints">0</span> pts</strong></span>
+  </div>
+  <div class="stock-toast" id="stockToast">
+    <span id="stockToastMsg">Item is out of stock</span>
   </div>
 
   <main>
@@ -216,6 +471,17 @@
           <button class="menu-tab active" data-tab="coffeeTab" id="tabCoffee" role="tab" aria-selected="true">☕ Coffee &amp; Drinks</button>
           <button class="menu-tab" data-tab="foodTab" id="tabFood" role="tab" aria-selected="false">🍳 Brunch &amp; Mains</button>
           <button class="menu-tab" data-tab="pastriesTab" id="tabPastries" role="tab" aria-selected="false">🥐 Artisan Bakery</button>
+          <button class="menu-tab" data-tab="cateringTab" id="tabCatering" role="tab" aria-selected="false">🏢 Catering Portal</button>
+        </div>
+
+        <!-- Dietary Quick Filters -->
+        <div class="dietary-filter-bar" id="dietaryFilterBar" role="group" aria-label="Dietary filters">
+          <span class="dietary-bar-label">Filter:</span>
+          <button class="dietary-btn" data-filter="vegan">🌱 Vegan</button>
+          <button class="dietary-btn" data-filter="gf">🌾 Gluten-Free</button>
+          <button class="dietary-btn" data-filter="nuts">🥜 Contains Nuts</button>
+          <button class="dietary-btn" data-filter="bestseller">⭐ Best Sellers</button>
+          <button class="dietary-btn" data-filter="new">✨ New</button>
         </div>
 
         <!-- ── PANEL: COFFEE & DRINKS ── -->
@@ -507,6 +773,84 @@
             </article>
 
           </div>
+        </div>
+
+        <!-- ── PANEL: CATERING PORTAL ── -->
+        <div class="menu-panel" id="cateringTab" role="tabpanel">
+          <div style="background:linear-gradient(135deg,rgba(75,0,110,0.06),rgba(201,113,75,0.1));border-radius:var(--radius-lg);border:1px solid var(--clr-cream-border);padding:2.5rem;margin-bottom:2.5rem;">
+            <span class="section-label terracotta" style="margin-bottom:0.75rem;">Corporate &amp; Bulk Orders</span>
+            <h3 class="section-title" style="font-size:1.8rem;margin-bottom:0.75rem;">Aster Catering <em>Portal</em></h3>
+            <p style="font-size:0.95rem;color:var(--clr-muted);line-height:1.8;max-width:600px;margin-bottom:1.5rem;">For office lunches, corporate events, and bulk orders in Banjara Hills. Minimum 24-hour advance notice. Custom menus available for groups of 10 to 200+.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;">
+              <div style="background:#fff;border-radius:var(--radius-md);padding:1.25rem;border:1px solid var(--clr-cream-border);text-align:center;">
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;color:var(--clr-terracotta);font-weight:700;">10+</div>
+                <div style="font-size:0.8rem;color:var(--clr-muted);">Min. Guests for Bulk</div>
+              </div>
+              <div style="background:#fff;border-radius:var(--radius-md);padding:1.25rem;border:1px solid var(--clr-cream-border);text-align:center;">
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;color:var(--clr-terracotta);font-weight:700;">24hr</div>
+                <div style="font-size:0.8rem;color:var(--clr-muted);">Min. Lead Time</div>
+              </div>
+              <div style="background:#fff;border-radius:var(--radius-md);padding:1.25rem;border:1px solid var(--clr-cream-border);text-align:center;">
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;color:var(--clr-terracotta);font-weight:700;">Free</div>
+                <div style="font-size:0.8rem;color:var(--clr-muted);">Delivery in Banjara Hills</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <button class="btn btn-terracotta btn-open-reserve" data-event-type="Catering &amp; Events">Request Catering Quote →</button>
+              <a href="tel:8686745411" class="btn btn-outline-terracotta">📞 Call to Discuss</a>
+            </div>
+          </div>
+          <div style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--clr-cream-border);padding:1.5rem;">
+            <h4 style="font-family:var(--ff-serif);font-size:1.1rem;margin-bottom:1rem;">Popular Bulk Order Packages</h4>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--clr-cream-border);">
+                <div>
+                  <div style="font-weight:700;font-size:0.95rem;color:var(--clr-charcoal);">Office Breakfast Box (per person)</div>
+                  <div style="font-size:0.8rem;color:var(--clr-muted);">Croissant, fruit cup, yoghurt, drip coffee</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <span style="font-family:var(--ff-serif);font-weight:700;color:var(--clr-terracotta);">₹280</span>
+                  <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Catering &amp; Events">Book</button>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--clr-cream-border);">
+                <div>
+                  <div style="font-weight:700;font-size:0.95rem;color:var(--clr-charcoal);">Working Lunch Set (per person)</div>
+                  <div style="font-size:0.8rem;color:var(--clr-muted);">Choice of main + salad + dessert + beverage</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <span style="font-family:var(--ff-serif);font-weight:700;color:var(--clr-terracotta);">₹480</span>
+                  <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Catering &amp; Events">Book</button>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;">
+                <div>
+                  <div style="font-weight:700;font-size:0.95rem;color:var(--clr-charcoal);">Premium Pastry Assortment (dozen)</div>
+                  <div style="font-size:0.8rem;color:var(--clr-muted);">Mixed croissants, cinnamon rolls, muffins, shortbread</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <span style="font-family:var(--ff-serif);font-weight:700;color:var(--clr-terracotta);">₹1,200</span>
+                  <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Catering &amp; Events">Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coffee Bean Subscription Box -->
+        <div class="subscription-box fade-up-element">
+          <div>
+            <span class="section-label purple" style="margin-bottom:0.75rem;">☕ Subscribe &amp; Save</span>
+            <h3 class="sub-box-title">Single-Origin Coffee<br><em>Bean Subscription</em></h3>
+            <p class="sub-box-desc">Our freshly roasted Coorg estate beans delivered straight to your door. Rich dark chocolate and citrus notes. Free delivery in Hyderabad.</p>
+            <div class="sub-box-freq">
+              <button class="sub-freq-btn" data-subscribe="xtr-004" data-freq="weekly">Weekly — ₹480</button>
+              <button class="sub-freq-btn" data-subscribe="xtr-004" data-freq="bi-weekly">Bi-Weekly — ₹460</button>
+              <button class="sub-freq-btn" data-subscribe="xtr-004" data-freq="monthly">Monthly — ₹440</button>
+            </div>
+            <div id="subscriptionNote" class="hidden"></div>
+          </div>
+          <img src="assets/images/menu-coffee.jpg" alt="Single origin coffee beans from Aster Cafe" class="sub-box-img" loading="lazy">
         </div>
 
       </div>
@@ -1265,6 +1609,41 @@
 
           </div>
 
+          <!-- Experience Add-ons (shown for events) -->
+          <div id="addonsSection" class="hidden">
+            <p class="addons-section-title">✨ Enhance Your Event</p>
+            <p class="addons-section-sub">Optional add-ons — pre-purchase and we'll have everything ready for your arrival.</p>
+            <div class="addon-grid">
+              <label class="addon-card">
+                <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-001">
+                <img src="assets/images/service-birthday.jpg" alt="Cake" class="addon-card-img" loading="lazy">
+                <div class="addon-card-body">
+                  <div class="addon-card-name">Custom Celebration Cake</div>
+                  <div class="addon-card-desc">3-tier personalised cake · 48hr notice</div>
+                </div>
+                <div class="addon-card-price">₹1,200</div>
+              </label>
+              <label class="addon-card">
+                <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-002">
+                <img src="assets/images/service-bridal.jpg" alt="Florals" class="addon-card-img" loading="lazy">
+                <div class="addon-card-body">
+                  <div class="addon-card-name">Floral Centrepiece</div>
+                  <div class="addon-card-desc">Fresh seasonal florals for your table</div>
+                </div>
+                <div class="addon-card-price">₹650</div>
+              </label>
+              <label class="addon-card">
+                <input type="checkbox" class="addon-checkbox" data-addon-id="xtr-003">
+                <img src="assets/images/service-bridal.jpg" alt="Photography" class="addon-card-img" loading="lazy">
+                <div class="addon-card-body">
+                  <div class="addon-card-name">Event Photography</div>
+                  <div class="addon-card-desc">2-hour session with photographer</div>
+                </div>
+                <div class="addon-card-price">₹1,800</div>
+              </label>
+            </div>
+          </div>
+
           <button type="submit" class="btn btn-terracotta modal-submit" id="btnSubmitReservation">
             Confirm Reservation &rarr;
           </button>
@@ -1296,6 +1675,7 @@
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
 
 </body>
 </html>
