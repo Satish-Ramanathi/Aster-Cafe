@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aster Cafe and Kitchen | Where Flavor Meets Comfort</title>
-  <meta name="description" content="Visit Aster Cafe and Kitchen for handcrafted coffee, gourmet food, refreshing drinks, events, celebrations, and creative experiences in Banjara Hills, Hyderabad.">
-  <meta name="keywords" content="Aster Cafe, Aster Cafe and Kitchen, Banjara Hills Cafe, Hyderabad Cafe, Gourmet Food, Artisan Coffee, Birthday Party Venue, Bridal Shower, Art Workshops">
+  <title>Aster Cafe and Kitchen | Where Flavor Meets Comfort — Banjara Hills, Hyderabad</title>
+  <meta name="description" content="Visit Aster Cafe and Kitchen in Banjara Hills, Hyderabad. Handcrafted coffee, artisan food, private events, art workshops, birthday parties & bridal showers. Book your table today.">
+  <meta name="keywords" content="Aster Cafe, Aster Cafe and Kitchen, Banjara Hills Cafe, Hyderabad Cafe, Gourmet Food, Artisan Coffee, Birthday Party Venue, Bridal Shower, Art Workshops, Private Events">
   <meta name="author" content="Aster Cafe and Kitchen">
-  
-  <!-- Open Graph Meta Tags -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Aster Cafe and Kitchen | Where Flavor Meets Comfort">
-  <meta property="og:description" content="Your go-to destination for handcrafted coffee, gourmet dishes, refreshing drinks, and relaxing vibes.">
+  <meta property="og:description" content="Handcrafted coffee, gourmet food, private events & creative workshops in Banjara Hills, Hyderabad.">
   <meta property="og:image" content="assets/images/about-exterior.jpg">
   <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://astercafeandkitchen.com">
 
-  <!-- Google Fonts: Poppins & Playfair Display -->
+  <!-- Google Fonts: Playfair Display + Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -25,34 +27,41 @@
 </head>
 <body>
 
-  <!-- ==========================================================================
+  <!-- ====================================================================
        NAVBAR
-       ========================================================================== -->
+       ==================================================================== -->
   <header>
     <nav class="navbar" id="navbar" aria-label="Main Navigation">
       <div class="nav-container">
-        
-        <!-- Logo Area -->
+
+        <!-- Logo -->
         <a href="#home" class="navbar-brand" id="navLogo" aria-label="Aster Cafe and Kitchen Home">
           <img src="assets/images/logo.svg" alt="Aster Cafe and Kitchen Logo" class="navbar-logo-img">
+          <div class="brand-text">
+            <span class="brand-name">ASTER</span>
+            <span class="brand-sub">Cafe &amp; Kitchen</span>
+          </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
+        <!-- Desktop Links -->
         <ul class="nav-links" id="desktopNavLinks">
-          <li><a href="#home" class="nav-link active" id="navLinkHome">HOME</a></li>
-          <li><a href="#services" class="nav-link" id="navLinkServices">SERVICES</a></li>
-          <li><a href="#about" class="nav-link" id="navLinkAbout">ABOUT US</a></li>
-          <li><a href="#gallery" class="nav-link" id="navLinkGallery">GALLERY</a></li>
-          <li><a href="#contact" class="nav-link" id="navLinkContact">CONTACT US</a></li>
+          <li><a href="#home"     class="nav-link active" id="navLinkHome">Home</a></li>
+          <li><a href="#menu"     class="nav-link" id="navLinkMenu">Menu</a></li>
+          <li><a href="#services" class="nav-link" id="navLinkServices">Events</a></li>
+          <li><a href="#about"    class="nav-link" id="navLinkAbout">About</a></li>
+          <li><a href="#gallery"  class="nav-link" id="navLinkGallery">Gallery</a></li>
+          <li><a href="#contact"  class="nav-link" id="navLinkContact">Contact</a></li>
         </ul>
 
-        <!-- Rightmost CTA Button -->
-        <div class="nav-cta-btn">
-          <a href="#contact" class="btn-gold btn-gold-pill" id="navContactCta">CONTACT US</a>
+        <!-- CTA -->
+        <div class="nav-cta">
+          <button class="btn btn-terracotta btn-pill btn-sm btn-open-reserve" id="navReserveBtn" data-event-type="Dining Table">
+            Reserve a Table
+          </button>
         </div>
 
-        <!-- Mobile Hamburger Button -->
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <!-- Hamburger -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -62,695 +71,1224 @@
     </nav>
   </header>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer -->
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
   <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
     <div class="mobile-nav-top">
-      <img src="assets/images/logo.svg" alt="Aster Cafe" style="height: 48px; margin-bottom: 2rem;">
+      <img src="assets/images/logo.svg" alt="Aster Cafe" style="height:44px;margin-bottom:1.5rem;">
       <ul class="mobile-nav-links">
-        <li><a href="#home" class="mobile-nav-link" id="mobLinkHome">HOME</a></li>
-        <li><a href="#services" class="mobile-nav-link" id="mobLinkServices">SERVICES</a></li>
-        <li><a href="#about" class="mobile-nav-link" id="mobLinkAbout">ABOUT US</a></li>
-        <li><a href="#gallery" class="mobile-nav-link" id="mobLinkGallery">GALLERY</a></li>
-        <li><a href="#contact" class="mobile-nav-link" id="mobLinkContact">CONTACT US</a></li>
+        <li><a href="#home"     class="mobile-nav-link" id="mobLinkHome">Home</a></li>
+        <li><a href="#menu"     class="mobile-nav-link" id="mobLinkMenu">Menu</a></li>
+        <li><a href="#services" class="mobile-nav-link" id="mobLinkServices">Events &amp; Services</a></li>
+        <li><a href="#about"    class="mobile-nav-link" id="mobLinkAbout">About Us</a></li>
+        <li><a href="#gallery"  class="mobile-nav-link" id="mobLinkGallery">Gallery</a></li>
+        <li><a href="#contact"  class="mobile-nav-link" id="mobLinkContact">Contact</a></li>
       </ul>
     </div>
-    <div class="mobile-nav-bottom">
-      <a href="#contact" class="btn-gold btn-gold-pill mobile-cta-btn" style="width: 100%; text-align: center;">CONTACT US</a>
+    <div>
+      <button class="btn btn-terracotta btn-pill btn-open-reserve" id="mobReserveBtn" data-event-type="Dining Table" style="width:100%;justify-content:center;">Reserve a Table</button>
     </div>
   </div>
 
   <main>
-    <!-- ==========================================================================
-         HERO SECTION
-         ========================================================================== -->
-    <section class="hero-section" id="home" aria-label="Welcome Hero">
+
+    <!-- ====================================================================
+         HERO
+         ==================================================================== -->
+    <section class="hero-section" id="home" aria-label="Welcome to Aster Cafe">
       <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="hero-welcome fade-up-element delay-1">Welcome to</p>
-        <h1 class="hero-title fade-up-element delay-2">Aster Cafe and Kitchen</h1>
-        <p class="hero-tagline fade-up-element delay-3">Where Flavor Meets Comfort</p>
-        <p class="hero-description fade-up-element delay-3">
-          Your go-to destination for handcrafted coffee, gourmet dishes, and relaxing vibes. Whether it’s a casual catch-up or a cozy dinner, Aster is the perfect spot.
+      <div class="hero-content fade-up-element">
+        <p class="hero-eyebrow">Welcome to</p>
+        <h1 class="hero-title">Aster <span>Cafe &amp; Kitchen</span></h1>
+        <p class="hero-tagline">Where Flavor Meets Comfort</p>
+        <p class="hero-desc">
+          Your go-to destination for handcrafted coffee, artisan food, and unforgettable experiences in the heart of Banjara Hills.
         </p>
-        <div class="hero-cta-wrapper fade-up-element delay-4">
-          <button class="btn-gold hero-cta btn-open-reserve" id="heroReserveBtn" data-event-type="Dining Table">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span>Reserve a Table &rarr;</span>
+        <div class="hero-actions">
+          <button class="btn btn-terracotta btn-lg btn-open-reserve" id="heroReserveBtn" data-event-type="Dining Table">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Reserve a Table
           </button>
+          <a href="#menu" class="btn btn-outline-terracotta btn-lg" id="heroMenuBtn" style="border-color:rgba(255,255,255,0.6);color:#fff;">
+            Explore Menu
+          </a>
         </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        <span>Scroll</span>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         ABOUT US SECTION
-         ========================================================================== -->
-    <section class="section about-section" id="about" aria-label="About Aster Cafe and Kitchen">
+    <!-- ====================================================================
+         STATS BAR
+         ==================================================================== -->
+    <div class="stats-bar" aria-label="Aster Cafe At a Glance">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-item-number">5+</div>
+            <div class="stat-item-label">Years of Flavour</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number">50+</div>
+            <div class="stat-item-label">Menu Items</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number">1200+</div>
+            <div class="stat-item-label">Happy Guests / Month</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number">4.8★</div>
+            <div class="stat-item-label">Google Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         ABOUT US
+         ==================================================================== -->
+    <section class="section" id="about" aria-label="About Aster Cafe and Kitchen">
       <div class="container">
         <div class="about-grid">
-          
-          <!-- Left Column Content -->
-          <div class="about-content fade-up-element">
-            <span class="pill-badge" id="aboutBadge">ABOUT US</span>
-            <h2 class="about-title">Aster Cafe and Kitchen</h2>
-            <p class="about-text">
-              Your go-to destination for delicious food, refreshing drinks, and a warm, inviting atmosphere. Whether you're stopping in for a morning coffee, a leisurely lunch, or a special dinner, we offer a diverse menu crafted with fresh, high-quality ingredients to satisfy every craving.
+
+          <!-- Content -->
+          <div class="fade-up-element">
+            <span class="section-label terracotta">Our Story</span>
+            <h2 class="section-title about-title">A Corner of Comfort,<br><em>Crafted with Heart</em></h2>
+            <p class="about-body">
+              Aster Cafe and Kitchen was born from a simple belief — that great food and genuine warmth can make any moment special. Tucked away in Banjara Hills, we've built a space that feels like a second home: the kind where the coffee is always perfectly brewed and every dish is made with intention.
             </p>
-            <p class="about-text">
-              Our cafe and restaurant blend comfort with quality—serving everything from handcrafted espresso drinks and pastries to hearty meals and gourmet specialties. Whether you're dining in, ordering takeaway, or planning an event, our friendly team is dedicated to providing exceptional service and a memorable culinary experience.
+            <p class="about-body">
+              From our artisan espresso bar to our gourmet kitchen, every element at Aster is curated to delight. Whether you're stopping in for a morning cappuccino, hosting an intimate birthday, or exploring your creativity in one of our workshops — our team is here to make it extraordinary.
             </p>
-            <p class="about-text">
-              Come relax, connect, and indulge at Aster Cafe and Kitchen where every meal is made with care, and every guest is treated like family.
-            </p>
-            <button class="btn-gold about-cta btn-open-reserve" id="aboutBookNowBtn" data-event-type="Dining Table">
-              Book Now &rarr;
+            <div class="about-highlights">
+              <div class="about-highlight-item">
+                <div class="highlight-dot"></div>
+                <span>Locally sourced, seasonal ingredients in every dish</span>
+              </div>
+              <div class="about-highlight-item">
+                <div class="highlight-dot"></div>
+                <span>Specialty coffee program with single-origin beans</span>
+              </div>
+              <div class="about-highlight-item">
+                <div class="highlight-dot"></div>
+                <span>Private event spaces for up to 50 guests</span>
+              </div>
+              <div class="about-highlight-item">
+                <div class="highlight-dot"></div>
+                <span>Monthly art, pottery &amp; culinary workshops</span>
+              </div>
+            </div>
+            <button class="btn btn-terracotta btn-open-reserve" id="aboutBookNowBtn" data-event-type="Dining Table">
+              Book Your Visit &rarr;
             </button>
           </div>
 
-          <!-- Right Column Image -->
-          <div class="about-image-wrapper fade-up-element delay-2">
-            <img src="assets/images/about-exterior.jpg" alt="Aster Cafe and Kitchen Illuminated Exterior at Night with Signboard and Welcome Stairs" class="about-img" loading="lazy">
+          <!-- Image -->
+          <div class="about-img-wrapper fade-up-element delay-2">
+            <img src="assets/images/about-exterior.jpg"
+                 alt="Aster Cafe and Kitchen exterior at night with illuminated signage"
+                 class="about-img" loading="lazy">
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SERVICES SECTION
-         ========================================================================== -->
-    <section class="section services-section" id="services" aria-label="Our Services and Private Events">
+    <!-- ====================================================================
+         DIGITAL MENU
+         ==================================================================== -->
+    <section class="section menu-section section-alt" id="menu" aria-label="Our Menu">
       <div class="container">
-        
-        <!-- Section Heading -->
-        <div class="section-header-center fade-up-element">
-          <span class="eyebrow eyebrow-green" id="servicesEyebrow">OUR SERVICE</span>
-          <h2 class="services-title">Cozy Cafe for Events, Dining &amp; Creative Experiences</h2>
+
+        <div class="text-center fade-up-element">
+          <span class="section-label sage">What We Serve</span>
+          <h2 class="section-title">Crafted with Care,<br><em>Served with Love</em></h2>
+          <p class="section-subtitle">Every item on our menu is made fresh — from our single-origin espresso drinks to our hearty brunch plates and delicate pastries.</p>
         </div>
 
-        <!-- 4 Services Cards Grid -->
+        <!-- Tab Navigation -->
+        <div class="menu-tab-bar" id="menuTabBar" role="tablist">
+          <button class="menu-tab active" data-tab="coffeeTab" id="tabCoffee" role="tab" aria-selected="true">☕ Coffee &amp; Drinks</button>
+          <button class="menu-tab" data-tab="foodTab" id="tabFood" role="tab" aria-selected="false">🍳 Brunch &amp; Mains</button>
+          <button class="menu-tab" data-tab="pastriesTab" id="tabPastries" role="tab" aria-selected="false">🥐 Artisan Bakery</button>
+        </div>
+
+        <!-- ── PANEL: COFFEE & DRINKS ── -->
+        <div class="menu-panel active" id="coffeeTab" role="tabpanel">
+          <img src="assets/images/menu-coffee.jpg" alt="Artisanal coffee and drinks at Aster Cafe" class="menu-hero-img" loading="lazy">
+          <div class="menu-grid">
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/latte.jpg" alt="Signature Latte Art at Aster Cafe" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-bestseller">Best Seller</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Signature Rose Latte</h3>
+                <p class="menu-card-desc">Velvety espresso blended with house-made rose syrup and oat milk, crowned with delicate latte art.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹220</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-coffee.jpg" alt="Golden turmeric latte" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Golden Turmeric Latte</h3>
+                <p class="menu-card-desc">Warming spiced turmeric, coconut milk, ginger and a hint of black pepper. Anti-inflammatory bliss.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹195</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-coffee.jpg" alt="Iced matcha latte" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span><span class="menu-tag tag-new">New</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Iced Matcha Latte</h3>
+                <p class="menu-card-desc">Ceremonial grade Japanese matcha whisked with oat milk over hand-chipped ice. Clean &amp; energizing.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹240</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/hero.jpg" alt="Cold brew coffee" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-gf">GF</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">24hr Cold Brew</h3>
+                <p class="menu-card-desc">Slow-steeped for 24 hours, our cold brew is smooth, bold, and naturally sweet. Served over ice.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹210</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-coffee.jpg" alt="Espresso" class="menu-card-img" loading="lazy">
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Single Origin Espresso</h3>
+                <p class="menu-card-desc">Sourced from Coorg estates, our espresso is rich with dark chocolate and citrus notes. Pure and precise.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹120</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-coffee.jpg" alt="Fresh fruit mocktail" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Garden Fizz Mocktail</h3>
+                <p class="menu-card-desc">House-made hibiscus syrup, fresh lime, cucumber ribbons and sparkling water. Refreshingly botanical.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹175</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ── PANEL: BRUNCH & MAINS ── -->
+        <div class="menu-panel" id="foodTab" role="tabpanel">
+          <img src="assets/images/menu-meals.jpg" alt="Gourmet brunch and mains at Aster Cafe" class="menu-hero-img" loading="lazy">
+          <div class="menu-grid">
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-meals.jpg" alt="Shakshuka at Aster Cafe" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-bestseller">Best Seller</span><span class="menu-tag tag-vegan">Veg</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Aster Shakshuka</h3>
+                <p class="menu-card-desc">Free-range eggs poached in spiced tomato &amp; pepper sauce with fresh herbs. Served with sourdough toast.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹380</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-meals.jpg" alt="Avocado toast" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Smashed Avo Toast</h3>
+                <p class="menu-card-desc">House sourdough, smashed Hass avocado, microgreens, cherry tomatoes and a drizzle of chilli oil.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹340</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/service-birthday.jpg" alt="Gourmet pasta" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-new">New</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Truffle Mushroom Pasta</h3>
+                <p class="menu-card-desc">Hand-rolled tagliatelle with wild mushrooms, black truffle oil, parmesan &amp; fresh thyme. Decadent.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹450</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-meals.jpg" alt="Grilled chicken bowl" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-gf">GF</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Herb Grilled Chicken Bowl</h3>
+                <p class="menu-card-desc">Sumac-spiced chicken thigh over herbed quinoa, roasted chickpeas, tahini &amp; pomegranate seeds.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹420</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/service-bridal.jpg" alt="Cheese toast" class="menu-card-img" loading="lazy">
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Gourmet Grilled Cheese</h3>
+                <p class="menu-card-desc">Aged cheddar, gruyère and caramelised onion on thick-cut sourdough. Golden, gooey, irresistible.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹280</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-meals.jpg" alt="Seasonal salad" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span><span class="menu-tag tag-gf">GF</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Botanical Garden Salad</h3>
+                <p class="menu-card-desc">Seasonal greens, edible flowers, candied walnuts, compressed watermelon &amp; a citrus vinaigrette.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹295</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ── PANEL: BAKERY ── -->
+        <div class="menu-panel" id="pastriesTab" role="tabpanel">
+          <img src="assets/images/menu-pastries.jpg" alt="Artisan pastries and bakery at Aster Cafe" class="menu-hero-img" loading="lazy">
+          <div class="menu-grid">
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Butter croissant" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-bestseller">Best Seller</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Classic Butter Croissant</h3>
+                <p class="menu-card-desc">Laminated with AOP French butter, baked fresh every morning. 72-hour slow-fermented dough.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹120</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Cinnamon roll" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-new">New</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Cardamom Cinnamon Roll</h3>
+                <p class="menu-card-desc">Pillowy brioche spiral loaded with cinnamon &amp; cardamom, finished with cream cheese glaze.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹165</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Almond croissant" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-gf">Contains Nuts</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Almond Frangipane Croissant</h3>
+                <p class="menu-card-desc">Day-old croissants filled with almond cream, baked until caramelised and dusted with icing sugar.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹185</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-1">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Lavender shortbread" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Lavender Shortbread</h3>
+                <p class="menu-card-desc">Buttery shortbread infused with culinary lavender and vanilla, dusted with purple sugar crystals.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹95</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-2">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Cardamom muffin" class="menu-card-img" loading="lazy">
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Cardamom Streusel Muffin</h3>
+                <p class="menu-card-desc">Moist spiced muffin with an oat streusel top. Warming, fragrant, and perfect with a black coffee.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹130</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="menu-card fade-up-element delay-3">
+              <div class="menu-card-img-wrapper">
+                <img src="assets/images/menu-pastries.jpg" alt="Banana bread" class="menu-card-img" loading="lazy">
+                <div class="menu-card-tags"><span class="menu-tag tag-vegan">Vegan Option</span></div>
+              </div>
+              <div class="menu-card-body">
+                <h3 class="menu-card-title">Walnut Banana Bread</h3>
+                <p class="menu-card-desc">Dense, moist banana bread with toasted walnuts and dark chocolate chips. A cafe classic done right.</p>
+                <div class="menu-card-footer">
+                  <span class="menu-card-price">₹145</span>
+                  <button class="menu-card-order-btn btn-open-reserve" data-event-type="Dining Table">Order Now</button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SERVICES & EVENTS
+         ==================================================================== -->
+    <section class="section services-section section-parchment" id="services" aria-label="Events and Services">
+      <div class="container">
+
+        <div class="text-center fade-up-element">
+          <span class="section-label purple">Our Experiences</span>
+          <h2 class="section-title">More Than a Cafe —<br><em>A Place to Celebrate</em></h2>
+          <p class="section-subtitle">From intimate birthday brunches to immersive art workshops, Aster creates moments worth remembering.</p>
+        </div>
+
         <div class="services-grid">
 
-          <!-- SERVICE 1: Birthday Party -->
+          <!-- Birthday -->
           <article class="service-card fade-up-element delay-1" id="serviceCardBirthday">
-            <div class="service-icon-container" aria-hidden="true">
-              <img src="assets/images/party-popper.svg" alt="Celebration Icon">
-            </div>
-            <h3 class="service-card-title">Birthday party</h3>
-            <p class="service-card-desc">
-              Make your birthday extra special at Aster! Whether it’s an intimate celebration or a lively gathering, we offer customized décor, curated menus, and a cozy ambiance that makes every birthday unforgettable.
-            </p>
             <div class="service-card-img-wrapper">
-              <img src="assets/images/service-birthday.jpg" alt="Aster Cafe Birthday Celebration Setup with Cake and Balloons" class="service-card-img" loading="lazy">
+              <img src="assets/images/service-birthday.jpg" alt="Birthday celebration at Aster Cafe with cake and balloons" class="service-card-img" loading="lazy">
+              <div class="service-card-img-overlay"></div>
             </div>
-            <button class="btn-gold service-btn btn-open-reserve" id="btnReserveBirthday" data-event-type="Birthday party">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Reserve Table</span>
-            </button>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">🎂</div>
+              <h3 class="service-card-title">Birthday Parties</h3>
+              <p class="service-card-desc">Custom décor, curated menus, and our warm ambiance make your birthday truly unforgettable. For groups of 2 to 40.</p>
+              <button class="btn btn-terracotta btn-sm btn-open-reserve" id="btnReserveBirthday" data-event-type="Birthday party">
+                Book This Experience
+              </button>
+            </div>
           </article>
 
-          <!-- SERVICE 2: Bridal Shower -->
+          <!-- Bridal Shower -->
           <article class="service-card fade-up-element delay-2" id="serviceCardBridal">
-            <div class="service-icon-container" aria-hidden="true">
-              <img src="assets/images/party-popper.svg" alt="Celebration Icon">
-            </div>
-            <h3 class="service-card-title">Bridal shower</h3>
-            <p class="service-card-desc">
-              Host a dreamy bridal shower in our elegant café space. With personalized themes, floral décor, and handcrafted menus, Aster creates the perfect setting for the bride-to-be and her closest circle.
-            </p>
             <div class="service-card-img-wrapper">
-              <img src="assets/images/service-bridal.jpg" alt="Aster Cafe Elegant Floral Bridal Shower Dining Setup" class="service-card-img" loading="lazy">
+              <img src="assets/images/service-bridal.jpg" alt="Elegant bridal shower at Aster Cafe" class="service-card-img" loading="lazy">
+              <div class="service-card-img-overlay"></div>
             </div>
-            <button class="btn-gold service-btn btn-open-reserve" id="btnReserveBridal" data-event-type="Bridal shower">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Reserve Table</span>
-            </button>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">💐</div>
+              <h3 class="service-card-title">Bridal Showers</h3>
+              <p class="service-card-desc">Floral themes, personalised menus, and elegant settings for the bride-to-be and her closest circle.</p>
+              <button class="btn btn-terracotta btn-sm btn-open-reserve" id="btnReserveBridal" data-event-type="Bridal shower">
+                Book This Experience
+              </button>
+            </div>
           </article>
 
-          <!-- SERVICE 3: Art Workshops -->
-          <article class="service-card fade-up-element delay-3" id="serviceCardArt">
-            <div class="service-icon-container" aria-hidden="true">
-              <img src="assets/images/party-popper.svg" alt="Celebration Icon">
-            </div>
-            <h3 class="service-card-title">Art work shops</h3>
-            <p class="service-card-desc">
-              Fuel your creativity with our weekend art workshops. From painting and pottery to journaling and calligraphy, Aster transforms into a creative hub where you can sip, paint, and connect.
-            </p>
+          <!-- Art Workshops -->
+          <article class="service-card fade-up-element delay-3" id="serviceCardWorkshop">
             <div class="service-card-img-wrapper">
-              <img src="assets/images/service-art.jpg" alt="Aster Cafe Creative Weekend Art Workshop and Coffee Painting" class="service-card-img" loading="lazy">
+              <img src="assets/images/service-birthday.jpg" alt="Art workshop at Aster Cafe" class="service-card-img" loading="lazy">
+              <div class="service-card-img-overlay"></div>
             </div>
-            <button class="btn-gold service-btn btn-open-reserve" id="btnReserveArt" data-event-type="Art work shops">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Reserve Table</span>
-            </button>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">🎨</div>
+              <h3 class="service-card-title">Art Workshops</h3>
+              <p class="service-card-desc">Monthly sessions in watercolour, pottery, latte art and more. Guided by local artists. Coffee always included.</p>
+              <button class="btn btn-terracotta btn-sm btn-open-reserve" id="btnReserveWorkshop" data-event-type="Art work shops">
+                Book This Experience
+              </button>
+            </div>
           </article>
 
-          <!-- SERVICE 4: Catering & Events -->
+          <!-- Catering -->
           <article class="service-card fade-up-element delay-4" id="serviceCardCatering">
-            <div class="service-icon-container" aria-hidden="true">
-              <img src="assets/images/party-popper.svg" alt="Celebration Icon">
-            </div>
-            <h3 class="service-card-title">Catering &amp; Events</h3>
-            <p class="service-card-desc">
-              Create unforgettable memories with our professional Catering &amp; Event Services designed for all occasions. From intimate family functions to large corporate events, we deliver flawless experiences with delicious food, stylish presentation, and seamless coordination.
-            </p>
             <div class="service-card-img-wrapper">
-              <img src="assets/images/service-catering.jpg" alt="Aster Cafe Catering & Event Buffet Presentation" class="service-card-img" loading="lazy">
+              <img src="assets/images/service-bridal.jpg" alt="Catering and private event at Aster Cafe" class="service-card-img" loading="lazy">
+              <div class="service-card-img-overlay"></div>
             </div>
-            <button class="btn-gold service-btn btn-open-reserve" id="btnReserveCatering" data-event-type="Catering & Events">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Reserve Table</span>
-            </button>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">🍽️</div>
+              <h3 class="service-card-title">Catering &amp; Private Events</h3>
+              <p class="service-card-desc">Full-service catering and private venue hire for corporate gatherings, family celebrations, and milestone dinners.</p>
+              <button class="btn btn-terracotta btn-sm btn-open-reserve" id="btnReserveCatering" data-event-type="Catering & Events">
+                Book This Experience
+              </button>
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         GALLERY SECTION
-         ========================================================================== -->
+    <!-- ====================================================================
+         WORKSHOP / EVENT CALENDAR
+         ==================================================================== -->
+    <section class="section events-section" id="events" aria-label="Upcoming Workshops and Events">
+      <div class="container">
+
+        <div class="fade-up-element">
+          <span class="section-label sage">What's On</span>
+          <h2 class="section-title">Upcoming <em>Events &amp; Workshops</em></h2>
+        </div>
+
+        <div class="events-grid">
+
+          <!-- Mini Calendar -->
+          <div class="mini-calendar fade-up-element delay-1" id="miniCalendar">
+            <div class="calendar-header">
+              <button class="calendar-nav-btn" id="calPrevBtn" aria-label="Previous month">&#8249;</button>
+              <span class="calendar-month-label" id="calMonthLabel">October 2026</span>
+              <button class="calendar-nav-btn" id="calNextBtn" aria-label="Next month">&#8250;</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- Dynamically generated by JS -->
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="events-list fade-up-element delay-2">
+
+            <article class="event-card" id="event1">
+              <div class="event-date-badge">
+                <div class="event-day-num">05</div>
+                <div class="event-month-abbr">Oct</div>
+              </div>
+              <div class="event-content">
+                <div class="event-category">🎨 Art Workshop</div>
+                <h3 class="event-title">Watercolour Botanicals</h3>
+                <div class="event-meta">
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    10:00 AM – 1:00 PM
+                  </span>
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    8 seats
+                  </span>
+                </div>
+                <div class="event-slots few-left">⚡ Only 3 seats left!</div>
+              </div>
+              <div class="event-book-btn">
+                <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Art work shops">Book</button>
+              </div>
+            </article>
+
+            <article class="event-card" id="event2">
+              <div class="event-date-badge">
+                <div class="event-day-num">12</div>
+                <div class="event-month-abbr">Oct</div>
+              </div>
+              <div class="event-content">
+                <div class="event-category">☕ Coffee Experience</div>
+                <h3 class="event-title">Latte Art Masterclass</h3>
+                <div class="event-meta">
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    3:00 PM – 5:30 PM
+                  </span>
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    12 seats
+                  </span>
+                </div>
+                <div class="event-slots">6 seats available</div>
+              </div>
+              <div class="event-book-btn">
+                <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Art work shops">Book</button>
+              </div>
+            </article>
+
+            <article class="event-card" id="event3">
+              <div class="event-date-badge">
+                <div class="event-day-num">19</div>
+                <div class="event-month-abbr">Oct</div>
+              </div>
+              <div class="event-content">
+                <div class="event-category">🎉 Private Event</div>
+                <h3 class="event-title">Autumn Harvest Dinner</h3>
+                <div class="event-meta">
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    7:00 PM – 10:00 PM
+                  </span>
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    20 seats
+                  </span>
+                </div>
+                <div class="event-slots">12 seats available</div>
+              </div>
+              <div class="event-book-btn">
+                <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Catering & Events">Book</button>
+              </div>
+            </article>
+
+            <article class="event-card" id="event4">
+              <div class="event-date-badge">
+                <div class="event-day-num">26</div>
+                <div class="event-month-abbr">Oct</div>
+              </div>
+              <div class="event-content">
+                <div class="event-category">🏺 Craft Workshop</div>
+                <h3 class="event-title">Hand-building Pottery</h3>
+                <div class="event-meta">
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    11:00 AM – 2:00 PM
+                  </span>
+                  <span class="event-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    10 seats
+                  </span>
+                </div>
+                <div class="event-slots">8 seats available</div>
+              </div>
+              <div class="event-book-btn">
+                <button class="btn btn-terracotta btn-sm btn-open-reserve" data-event-type="Art work shops">Book</button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         GALLERY
+         ==================================================================== -->
     <section class="section gallery-section" id="gallery" aria-label="Photo Gallery">
       <div class="container">
-        
-        <!-- Gallery Section Header with Decorative Line -->
-        <div class="gallery-header fade-up-element">
-          <div class="gallery-decorative-line">
-            <span class="gallery-decorative-bar"></span>
-            <span class="gallery-decorative-square"></span>
+
+        <div class="gallery-section-header">
+          <div class="fade-up-element">
+            <span class="section-label terracotta">Gallery</span>
+            <h2 class="section-title" style="margin-bottom:0;">Inside <em>Our World</em></h2>
           </div>
-          <h2 class="gallery-heading-text">OUR GALLERY</h2>
+          <div class="gallery-filter-bar" id="galleryFilterBar">
+            <button class="gallery-filter-btn active" data-filter="all" id="filterAll">All</button>
+            <button class="gallery-filter-btn" data-filter="food" id="filterFood">Food</button>
+            <button class="gallery-filter-btn" data-filter="events" id="filterEvents">Events</button>
+            <button class="gallery-filter-btn" data-filter="interior" id="filterInterior">Interior</button>
+          </div>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="gallery-tabs fade-up-element delay-1">
-          <button class="gallery-tab-btn active" data-filter="all">All Photos</button>
-          <button class="gallery-tab-btn" data-filter="ambience">Ambience &amp; Interior</button>
-          <button class="gallery-tab-btn" data-filter="food">Food &amp; Coffee</button>
-          <button class="gallery-tab-btn" data-filter="events">Special Moments</button>
-        </div>
-
-        <!-- 3-Column Gallery Grid -->
         <div class="gallery-grid" id="galleryGrid">
-          
-          <!-- Image 1 -->
-          <div class="gallery-item fade-up-element" data-category="ambience" id="galleryItem1" tabindex="0" role="button" aria-label="View interior geometric floor and velvet chairs">
-            <img src="assets/images/gallery-1.jpg" alt="Aster Cafe Chic Interior with Patterned Floors and Plush Velvet Seating" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+
+          <div class="gallery-item fade-up-element" data-category="food" id="galleryItem1" tabindex="0" role="button" aria-label="Open: Latte Art">
+            <img src="assets/images/latte.jpg" alt="Beautiful latte art at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Modern Chic Interior &amp; Velvet Lounge</p>
+              <span class="gallery-caption">Signature Latte Art</span>
             </div>
           </div>
 
-          <!-- Image 2 -->
-          <div class="gallery-item fade-up-element delay-1" data-category="ambience" id="galleryItem2" tabindex="0" role="button" aria-label="View glossy black marble dining table">
-            <img src="assets/images/gallery-2.jpg" alt="Glossy Black Marble Table Reflection and Floral Wall Art" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-1" data-category="interior" id="galleryItem2" tabindex="0" role="button" aria-label="Open: Exterior">
+            <img src="assets/images/about-exterior.jpg" alt="Aster Cafe exterior at night" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Marble Table Ambiance &amp; Floral Decor</p>
+              <span class="gallery-caption">Aster After Dark</span>
             </div>
           </div>
 
-          <!-- Image 3 -->
-          <div class="gallery-item fade-up-element delay-2" data-category="ambience events" id="galleryItem3" tabindex="0" role="button" aria-label="View illuminated purple Aster wall">
-            <img src="assets/images/gallery-3.jpg" alt="Aster Cafe Signature Purple Textured Wall with Illuminated Golden Logo" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-2" data-category="events" id="galleryItem3" tabindex="0" role="button" aria-label="Open: Birthday setup">
+            <img src="assets/images/service-birthday.jpg" alt="Birthday party setup at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Signature Glowing Aster Brand Wall</p>
+              <span class="gallery-caption">Birthday Celebration</span>
             </div>
           </div>
 
-          <!-- Image 4 -->
-          <div class="gallery-item fade-up-element" data-category="ambience" id="galleryItem4" tabindex="0" role="button" aria-label="View restaurant night exterior">
-            <img src="assets/images/about-exterior.jpg" alt="Aster Cafe and Kitchen Nighttime Facade and Staircase" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-1" data-category="food" id="galleryItem4" tabindex="0" role="button" aria-label="Open: Avocado toast">
+            <img src="assets/images/menu-meals.jpg" alt="Gourmet brunch spread at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Nighttime Exterior &amp; Garden Stairs</p>
+              <span class="gallery-caption">Brunch Spread</span>
             </div>
           </div>
 
-          <!-- Image 5 -->
-          <div class="gallery-item fade-up-element delay-1" data-category="ambience" id="galleryItem5" tabindex="0" role="button" aria-label="View Scandinavian dining room">
-            <img src="assets/images/gallery-dining.jpg" alt="Scandinavian Wooden Dining Tables with Ambient Lighting" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-2" data-category="events" id="galleryItem5" tabindex="0" role="button" aria-label="Open: Bridal shower">
+            <img src="assets/images/service-bridal.jpg" alt="Elegant bridal shower at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Minimalist Scandinavian Dining Space</p>
+              <span class="gallery-caption">Bridal Shower Bliss</span>
             </div>
           </div>
 
-          <!-- Image 6 -->
-          <div class="gallery-item fade-up-element delay-2" data-category="food" id="galleryItem6" tabindex="0" role="button" aria-label="View refreshing mocktail drink">
-            <img src="assets/images/gallery-drink.jpg" alt="Refreshing Mint and Lime Mocktail with Floral Accents" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-3" data-category="food" id="galleryItem6" tabindex="0" role="button" aria-label="Open: Pastries">
+            <img src="assets/images/menu-pastries.jpg" alt="Artisan pastries at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Refreshing Handcrafted Mocktails</p>
+              <span class="gallery-caption">Artisan Pastries</span>
             </div>
           </div>
 
-          <!-- Extra Image 7 (Expandable on View More) -->
-          <div class="gallery-item gallery-item-extra hidden" data-category="food" id="galleryItem7" tabindex="0" role="button" aria-label="View artisanal latte art">
-            <img src="assets/images/gallery-latte.jpg" alt="Artisanal Latte Art in Ceramic Cup with Roasted Coffee Beans" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element" data-category="interior" id="galleryItem7" tabindex="0" role="button" aria-label="Open: Interior">
+            <img src="assets/images/hero.jpg" alt="Aster Cafe warm interior ambiance" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Handcrafted Espresso &amp; Latte Art</p>
+              <span class="gallery-caption">Our Warm Interior</span>
             </div>
           </div>
 
-          <!-- Extra Image 8 (Expandable on View More) -->
-          <div class="gallery-item gallery-item-extra hidden" data-category="food" id="galleryItem8" tabindex="0" role="button" aria-label="View gourmet avocado toast">
-            <img src="assets/images/gallery-avocado-toast.jpg" alt="Gourmet Smashed Avocado Sourdough Toast with Poached Egg" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-1" data-category="food" id="galleryItem8" tabindex="0" role="button" aria-label="Open: Coffee drinks">
+            <img src="assets/images/menu-coffee.jpg" alt="Artisan coffee drinks at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Gourmet Avocado Toast with Poached Egg</p>
+              <span class="gallery-caption">Crafted Coffee Bar</span>
             </div>
           </div>
 
-          <!-- Extra Image 9 (Expandable on View More) -->
-          <div class="gallery-item gallery-item-extra hidden" data-category="food events" id="galleryItem9" tabindex="0" role="button" aria-label="View gourmet cafe dishes">
-            <img src="assets/images/hero.jpg" alt="Aster Cafe Vibrant Dining Hall &amp; Patrons" class="gallery-img" loading="lazy">
-            <div class="gallery-item-overlay">
+          <div class="gallery-item fade-up-element delay-2" data-category="events" id="galleryItem9" tabindex="0" role="button" aria-label="Open: Event setup">
+            <img src="assets/images/service-birthday.jpg" alt="Private event setup at Aster Cafe" class="gallery-img" loading="lazy">
+            <div class="gallery-overlay">
               <div class="gallery-zoom-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  <line x1="11" y1="8" x2="11" y2="14"></line>
-                  <line x1="8" y1="11" x2="14" y2="11"></line>
-                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
-              <p class="gallery-item-caption">Warm Gathering &amp; Social Dining Experience</p>
+              <span class="gallery-caption">Private Dining Setup</span>
             </div>
           </div>
 
         </div>
 
-        <!-- View More Button -->
-        <div class="gallery-cta-wrapper fade-up-element">
-          <button class="btn-gold gallery-view-more-btn" id="galleryViewMoreBtn">
-            View More &rarr;
-          </button>
+        <div class="gallery-cta fade-up-element">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-terracotta">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            More on Instagram
+          </a>
         </div>
 
       </div>
     </section>
+
+    <!-- ====================================================================
+         GOOGLE REVIEWS CAROUSEL
+         ==================================================================== -->
+    <section class="section reviews-section" id="reviews" aria-label="Customer Reviews">
+      <div class="container">
+
+        <div class="reviews-header-row fade-up-element">
+          <div>
+            <span class="section-label sage">Reviews</span>
+            <h2 class="section-title" style="margin-bottom:0;">What Our <em>Guests Say</em></h2>
+          </div>
+          <div class="google-rating-badge">
+            <div class="google-rating-num">4.8</div>
+            <div class="google-rating-info">
+              <div class="google-stars-row">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <div class="google-review-count">Based on 340+ Google Reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-carousel-wrapper fade-up-element delay-1">
+          <div class="reviews-track-container">
+            <div class="reviews-track" id="reviewsTrack">
+
+              <div class="review-card">
+                <div class="review-stars">
+                  <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+                </div>
+                <p class="review-text">The rose latte is absolutely divine — I've never had anything like it in Hyderabad. The ambiance is warm, the staff is welcoming, and the food is consistently excellent. Aster has become my weekly ritual.</p>
+                <div class="review-author">
+                  <div class="review-avatar" style="background:#E8DED0;color:#C9714B;">P</div>
+                  <div class="review-author-info">
+                    <div class="review-author-name">Priya Sharma</div>
+                    <div class="review-date">September 2026</div>
+                  </div>
+                  <div class="review-google-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                      <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00"/>
+                      <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5717 17.5742 13.3037 18.001 12 18C9.39903 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11353 22 12 22Z" fill="#4CAF50"/>
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.785L18.7045 19.404C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-card">
+                <div class="review-stars">
+                  <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+                </div>
+                <p class="review-text">We hosted our bridal shower here and it was beyond perfect. The team personalised every detail — the floral setup, the custom menu, the music. All my bridesmaids are still talking about it. Absolutely 5 stars.</p>
+                <div class="review-author">
+                  <div class="review-avatar" style="background:#EDE5D8;color:#6B8C6A;">A</div>
+                  <div class="review-author-info">
+                    <div class="review-author-name">Ananya Reddy</div>
+                    <div class="review-date">August 2026</div>
+                  </div>
+                  <div class="review-google-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                      <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00"/>
+                      <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5717 17.5742 13.3037 18.001 12 18C9.39903 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11353 22 12 22Z" fill="#4CAF50"/>
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.785L18.7045 19.404C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-card">
+                <div class="review-stars">
+                  <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+                </div>
+                <p class="review-text">The watercolour workshop was incredible! Didn't think I had an artistic bone in my body, but by the end I had painted something I was actually proud of. And the coffee during the session? Chef's kiss. Will be back next month.</p>
+                <div class="review-author">
+                  <div class="review-avatar" style="background:#F7F0FC;color:#4B006E;">R</div>
+                  <div class="review-author-info">
+                    <div class="review-author-name">Rohan Mehta</div>
+                    <div class="review-date">September 2026</div>
+                  </div>
+                  <div class="review-google-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                      <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00"/>
+                      <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5717 17.5742 13.3037 18.001 12 18C9.39903 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11353 22 12 22Z" fill="#4CAF50"/>
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.785L18.7045 19.404C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-card">
+                <div class="review-stars">
+                  <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+                </div>
+                <p class="review-text">Best avocado toast in Hyderabad — and I've tried them all. The bread is clearly house-baked, the avocado perfectly seasoned. This place takes quality seriously and it shows in every single dish.</p>
+                <div class="review-author">
+                  <div class="review-avatar" style="background:#E8F5E9;color:#4D6B4C;">S</div>
+                  <div class="review-author-info">
+                    <div class="review-author-name">Sneha Krishnamurti</div>
+                    <div class="review-date">July 2026</div>
+                  </div>
+                  <div class="review-google-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                      <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00"/>
+                      <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5717 17.5742 13.3037 18.001 12 18C9.39903 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11353 22 12 22Z" fill="#4CAF50"/>
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.785L18.7045 19.404C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-card">
+                <div class="review-stars">
+                  <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+                </div>
+                <p class="review-text">Celebrated my daughter's birthday here and the team went above and beyond. The custom cake, the décor, the warmth of the staff — everything was perfect. The shakshuka brunch next morning was equally outstanding!</p>
+                <div class="review-author">
+                  <div class="review-avatar" style="background:#FFF3E0;color:#B77B43;">V</div>
+                  <div class="review-author-info">
+                    <div class="review-author-name">Vijay Anand</div>
+                    <div class="review-date">August 2026</div>
+                  </div>
+                  <div class="review-google-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                      <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00"/>
+                      <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5717 17.5742 13.3037 18.001 12 18C9.39903 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11353 22 12 22Z" fill="#4CAF50"/>
+                      <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.785L18.7045 19.404C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="reviews-nav">
+            <button class="reviews-nav-btn" id="reviewsPrevBtn" aria-label="Previous reviews">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="reviews-dots" id="reviewsDots"></div>
+            <button class="reviews-nav-btn" id="reviewsNextBtn" aria-label="Next reviews">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         INSTAGRAM FEED
+         ==================================================================== -->
+    <section class="section instagram-section" id="instagram" aria-label="Follow us on Instagram">
+      <div class="container">
+        <div class="instagram-header">
+          <div class="instagram-handle" aria-label="Instagram handle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#4B006E"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @astercafeandkitchen
+          </div>
+          <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:0.5rem;">Follow Our <em>Daily Moments</em></h2>
+          <p class="section-subtitle">See what's brewing, baking, and happening at Aster every day.</p>
+        </div>
+
+        <div class="instagram-grid" id="instagramGrid">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element" id="igItem1" aria-label="View on Instagram">
+            <img src="assets/images/menu-coffee.jpg" alt="Coffee at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element delay-1" id="igItem2" aria-label="View on Instagram">
+            <img src="assets/images/menu-meals.jpg" alt="Brunch at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element delay-2" id="igItem3" aria-label="View on Instagram">
+            <img src="assets/images/menu-pastries.jpg" alt="Pastries at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element delay-3" id="igItem4" aria-label="View on Instagram">
+            <img src="assets/images/service-birthday.jpg" alt="Event at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element delay-1" id="igItem5" aria-label="View on Instagram">
+            <img src="assets/images/latte.jpg" alt="Latte art at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-item fade-up-element delay-2" id="igItem6" aria-label="View on Instagram">
+            <img src="assets/images/service-bridal.jpg" alt="Bridal shower at Aster Cafe Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer class="footer" id="contact" aria-label="Site Footer">
+  <!-- ====================================================================
+       FOOTER / CONTACT
+       ==================================================================== -->
+  <footer class="footer" id="contact" aria-label="Site Footer and Contact Information">
     <div class="container">
       <div class="footer-grid">
-        
-        <!-- Column 1: Brand & Socials -->
-        <div class="footer-col-1">
-          <h3 class="footer-connect-title">Let's Connect.</h3>
-          <p class="footer-desc">
-            At Aster, we believe that food is more than just fuel – it’s an experience. Founded with a passion for hospitality and a love for creativity in the kitchen, Aster is a cozy yet vibrant cafe that brings people together through flavor, comfort, and connection.
+
+        <!-- Brand -->
+        <div>
+          <img src="assets/images/logo.svg" alt="Aster Cafe and Kitchen Logo" class="footer-brand-logo">
+          <h3 class="footer-connect-heading">Let's Connect.</h3>
+          <p class="footer-brand-desc">
+            At Aster, we believe that food is more than fuel — it's an experience. A cozy yet vibrant cafe that brings people together through flavor, comfort, and connection.
           </p>
           <div class="footer-socials" aria-label="Social Media Links">
-            <!-- Facebook -->
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook">
               <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
             </a>
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <!-- YouTube -->
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="YouTube">
               <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <!-- Twitter / X -->
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="X / Twitter">
               <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Column 2: Services -->
-        <div class="footer-col-2">
+        <!-- Services -->
+        <div>
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item">
-              <a href="#services" class="btn-open-reserve" data-event-type="Birthday party">
-                <span class="footer-chevron">&raquo;</span> Birthday party
-              </a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#services" class="btn-open-reserve" data-event-type="Bridal shower">
-                <span class="footer-chevron">&raquo;</span> Bridal shower
-              </a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#services" class="btn-open-reserve" data-event-type="Art work shops">
-                <span class="footer-chevron">&raquo;</span> Art work shops
-              </a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#services" class="btn-open-reserve" data-event-type="Catering & Events">
-                <span class="footer-chevron">&raquo;</span> Catering &amp; Events
-              </a>
-            </li>
+            <li class="footer-link"><a href="#services" class="btn-open-reserve" data-event-type="Birthday party"><span class="footer-link-arrow">→</span> Birthday Parties</a></li>
+            <li class="footer-link"><a href="#services" class="btn-open-reserve" data-event-type="Bridal shower"><span class="footer-link-arrow">→</span> Bridal Showers</a></li>
+            <li class="footer-link"><a href="#services" class="btn-open-reserve" data-event-type="Art work shops"><span class="footer-link-arrow">→</span> Art Workshops</a></li>
+            <li class="footer-link"><a href="#services" class="btn-open-reserve" data-event-type="Catering & Events"><span class="footer-link-arrow">→</span> Private Events</a></li>
+            <li class="footer-link"><a href="#menu"><span class="footer-link-arrow">→</span> Our Menu</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Quick Links -->
-        <div class="footer-col-3">
-          <h4 class="footer-col-title">Links</h4>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Navigate</h4>
           <ul class="footer-links">
-            <li class="footer-link-item">
-              <a href="#home"><span class="footer-chevron">&raquo;</span> Home</a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#about"><span class="footer-chevron">&raquo;</span> About Us</a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#contact"><span class="footer-chevron">&raquo;</span> Contact Us</a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#services"><span class="footer-chevron">&raquo;</span> Services</a>
-            </li>
-            <li class="footer-link-item">
-              <a href="#gallery"><span class="footer-chevron">&raquo;</span> Gallery</a>
-            </li>
+            <li class="footer-link"><a href="#home"><span class="footer-link-arrow">→</span> Home</a></li>
+            <li class="footer-link"><a href="#about"><span class="footer-link-arrow">→</span> About Us</a></li>
+            <li class="footer-link"><a href="#events"><span class="footer-link-arrow">→</span> Events Calendar</a></li>
+            <li class="footer-link"><a href="#gallery"><span class="footer-link-arrow">→</span> Gallery</a></li>
+            <li class="footer-link"><a href="#reviews"><span class="footer-link-arrow">→</span> Reviews</a></li>
           </ul>
         </div>
 
-        <!-- Column 4: Contact Us -->
-        <div class="footer-col-4">
-          <h4 class="footer-col-title">Contact Us</h4>
+        <!-- Contact -->
+        <div>
+          <h4 class="footer-col-title">Find Us</h4>
           <ul class="footer-contact-list">
-            
-            <!-- Address -->
             <li class="footer-contact-item">
-              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <a href="https://maps.google.com/?q=8-2-686/6/D/9/1,+Anand+banjara+colony,+Banjara+Hills+rd+12,+beside+Kawasaki+bike+showroom+lane" target="_blank" rel="noopener noreferrer">
-                8-2-686/6/D/9/1, Anand banjara colony,<br>
-                Banjara Hills rd 12, beside Kawasaki bike showroom lane
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <a href="https://maps.google.com/?q=8-2-686/6/D/9/1,+Anand+banjara+colony,+Banjara+Hills+rd+12" target="_blank" rel="noopener noreferrer">
+                8-2-686/6/D/9/1, Anand Banjara Colony,<br>Banjara Hills Rd 12, Hyderabad
               </a>
             </li>
-
-            <!-- Phone -->
             <li class="footer-contact-item">
-              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
-              <a href="tel:8686745411" id="footerPhone">8686745411</a>
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 5.3 5.3l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+              <a href="tel:8686745411" id="footerPhone">+91 86867 45411</a>
             </li>
-
-            <!-- Email -->
             <li class="footer-contact-item">
-              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <a href="mailto:gyanprakash9966@gmail.com" id="footerEmail">gyanprakash9966@gmail.com</a>
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:hello@astercafeandkitchen.com" id="footerEmail">hello@astercafeandkitchen.com</a>
             </li>
-
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Mon – Sun: 8:00 AM – 11:00 PM</span>
+            </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Footer Bottom Copyright -->
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
         <p>&copy; 2026 Aster Cafe and Kitchen. All Rights Reserved.</p>
-        <div class="footer-bottom-links">
+        <div style="display:flex;gap:1.5rem;">
           <a href="#home">Back to Top &uarr;</a>
+          <a href="mailto:hello@astercafeandkitchen.com">Contact Us</a>
         </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       FLOATING WHATSAPP BUTTON
-       ========================================================================== -->
-  <a href="https://wa.me/918686745411?text=Hello%20Aster%20Cafe%20and%20Kitchen!%20I%20would%20like%20to%20reserve%20a%20table%20or%20inquire%20about%20your%20events." 
-     class="floating-whatsapp" 
-     id="floatingWhatsappBtn" 
-     target="_blank" 
-     rel="noopener noreferrer" 
+  <!-- ====================================================================
+       FLOATING WHATSAPP
+       ==================================================================== -->
+  <a href="https://wa.me/918686745411?text=Hello%20Aster%20Cafe%21%20I%27d%20love%20to%20reserve%20a%20table%20or%20learn%20about%20upcoming%20events."
+     class="float-whatsapp"
+     id="floatingWhatsappBtn"
+     target="_blank"
+     rel="noopener noreferrer"
      aria-label="Chat with Aster Cafe on WhatsApp">
     <span class="whatsapp-pulse"></span>
-    <svg viewBox="0 0 24 24">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-    </svg>
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
-  <!-- ==========================================================================
-       LIGHTBOX MODAL
-       ========================================================================== -->
+  <!-- ====================================================================
+       GALLERY LIGHTBOX
+       ==================================================================== -->
   <div class="lightbox-modal" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image Preview">
-    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close Lightbox">&times;</button>
-    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous Image">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
+    <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
-    <div class="lightbox-content">
+    <div class="lightbox-body">
       <img src="" alt="" class="lightbox-img" id="lightboxImg">
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
-    <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" aria-label="Next Image">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
+    <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   </div>
 
-  <!-- ==========================================================================
+  <!-- ====================================================================
        RESERVATION MODAL
-       ========================================================================== -->
-  <div class="reservation-modal-backdrop" id="reservationModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
-    <div class="reservation-modal-container">
-      
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h3 id="modalHeading">Reserve a Table</h3>
-        <p>Book your memorable dining or celebration experience at Aster</p>
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close reservation modal">&times;</button>
+       ==================================================================== -->
+  <div class="modal-backdrop" id="reservationModal" role="dialog" aria-modal="true" aria-labelledby="modalHeadingTitle">
+
+    <div class="modal-box">
+
+      <div class="modal-head">
+        <h3 id="modalHeadingTitle">Reserve Your Experience</h3>
+        <p>Book a table or private event at Aster Cafe</p>
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close reservation modal">&times;</button>
       </div>
 
-      <!-- Modal Body / Form -->
-      <div class="modal-body">
-        
+      <div class="modal-body" id="modalFormBody">
         <form id="reservationForm" novalidate>
           <div class="form-grid">
-            
-            <!-- Full Name -->
+
             <div class="form-group">
               <label for="reserveName" class="form-label">Full Name <span class="req">*</span></label>
-              <input type="text" id="reserveName" class="form-input" placeholder="e.g. John Doe" required>
-              <span class="form-error-msg" id="errName">Please enter your full name (at least 2 letters).</span>
+              <input type="text" id="reserveName" class="form-control" placeholder="e.g. Priya Sharma" required>
+              <span class="form-error" id="errName">Please enter your full name.</span>
             </div>
 
-            <!-- Phone Number -->
             <div class="form-group">
               <label for="reservePhone" class="form-label">Phone Number <span class="req">*</span></label>
-              <input type="tel" id="reservePhone" class="form-input" placeholder="e.g. 8686745411" required>
-              <span class="form-error-msg" id="errPhone">Please enter a valid phone number.</span>
+              <input type="tel" id="reservePhone" class="form-control" placeholder="e.g. 8686745411" required>
+              <span class="form-error" id="errPhone">Please enter a valid phone number.</span>
             </div>
 
-            <!-- Email Address -->
             <div class="form-group">
               <label for="reserveEmail" class="form-label">Email Address <span class="req">*</span></label>
-              <input type="email" id="reserveEmail" class="form-input" placeholder="e.g. you@example.com" required>
-              <span class="form-error-msg" id="errEmail">Please enter a valid email address.</span>
+              <input type="email" id="reserveEmail" class="form-control" placeholder="e.g. you@example.com" required>
+              <span class="form-error" id="errEmail">Please enter a valid email address.</span>
             </div>
 
-            <!-- Event Type -->
             <div class="form-group">
-              <label for="reserveEventType" class="form-label">Experience / Event Type <span class="req">*</span></label>
-              <select id="reserveEventType" class="form-select" required>
+              <label for="reserveEventType" class="form-label">Experience / Event <span class="req">*</span></label>
+              <select id="reserveEventType" class="form-control" required>
                 <option value="Dining Table">Casual Dining / Table</option>
                 <option value="Birthday party">Birthday Party</option>
                 <option value="Bridal shower">Bridal Shower</option>
-                <option value="Art work shops">Art Workshops</option>
+                <option value="Art work shops">Art Workshop</option>
                 <option value="Catering & Events">Catering &amp; Private Event</option>
                 <option value="Family Gathering">Family Gathering</option>
               </select>
             </div>
 
-            <!-- Date -->
             <div class="form-group">
-              <label for="reserveDate" class="form-label">Reservation Date <span class="req">*</span></label>
-              <input type="date" id="reserveDate" class="form-input" required>
-              <span class="form-error-msg" id="errDate">Please select a valid reservation date.</span>
+              <label for="reserveDate" class="form-label">Preferred Date <span class="req">*</span></label>
+              <input type="date" id="reserveDate" class="form-control" required>
+              <span class="form-error" id="errDate">Please select a date.</span>
             </div>
 
-            <!-- Time -->
             <div class="form-group">
               <label for="reserveTime" class="form-label">Preferred Time <span class="req">*</span></label>
-              <select id="reserveTime" class="form-select" required>
+              <select id="reserveTime" class="form-control" required>
                 <option value="">Select time slot</option>
-                <option value="11:00 AM">11:00 AM - Morning Brunch</option>
-                <option value="12:30 PM">12:30 PM - Lunch</option>
-                <option value="02:00 PM">02:00 PM - Afternoon Coffee</option>
-                <option value="04:30 PM">04:30 PM - High Tea / Snacks</option>
-                <option value="07:00 PM">07:00 PM - Early Dinner</option>
-                <option value="08:30 PM">08:30 PM - Prime Dinner</option>
-                <option value="10:00 PM">10:00 PM - Late Night</option>
+                <option value="11:00 AM">11:00 AM – Morning Brunch</option>
+                <option value="12:30 PM">12:30 PM – Lunch</option>
+                <option value="02:00 PM">02:00 PM – Afternoon Coffee</option>
+                <option value="04:30 PM">04:30 PM – High Tea</option>
+                <option value="07:00 PM">07:00 PM – Early Dinner</option>
+                <option value="08:30 PM">08:30 PM – Prime Dinner</option>
               </select>
-              <span class="form-error-msg" id="errTime">Please select your preferred time.</span>
+              <span class="form-error" id="errTime">Please select a time slot.</span>
             </div>
 
-            <!-- Number of Guests -->
-            <div class="form-group">
+            <div class="form-group col-span-2">
               <label for="reserveGuests" class="form-label">Number of Guests <span class="req">*</span></label>
-              <select id="reserveGuests" class="form-select" required>
-                <option value="">Select guests count</option>
+              <select id="reserveGuests" class="form-control" required>
+                <option value="">Select guest count</option>
                 <option value="1">1 Person</option>
-                <option value="2">2 People (Cozy Table)</option>
-                <option value="3-4">3 - 4 People</option>
-                <option value="5-8">5 - 8 People (Group Table)</option>
-                <option value="9-15">9 - 15 People (Party Table)</option>
-                <option value="16+">16+ People (Full Event Hall)</option>
+                <option value="2">2 People</option>
+                <option value="3-4">3 – 4 People</option>
+                <option value="5-8">5 – 8 People</option>
+                <option value="9-15">9 – 15 People</option>
+                <option value="16+">16+ People (Private Hall)</option>
               </select>
-              <span class="form-error-msg" id="errGuests">Please specify the guest count.</span>
+              <span class="form-error" id="errGuests">Please select guest count.</span>
             </div>
 
-            <!-- Message / Special Requests -->
-            <div class="form-group form-group-full">
-              <label for="reserveMessage" class="form-label">Special Requests / Dietary Preferences</label>
-              <textarea id="reserveMessage" class="form-textarea" placeholder="E.g. Cake request, anniversary celebration, window seating, vegetarian preference..."></textarea>
+            <div class="form-group col-span-2">
+              <label for="reserveMessage" class="form-label">Special Requests</label>
+              <textarea id="reserveMessage" class="form-control" rows="3" placeholder="Dietary needs, décor ideas, anniversary notes..."></textarea>
             </div>
 
           </div>
 
-          <!-- Submit Button -->
-          <button type="submit" class="btn-gold modal-submit-btn" id="btnSubmitReservation">
+          <button type="submit" class="btn btn-terracotta modal-submit" id="btnSubmitReservation">
             Confirm Reservation &rarr;
           </button>
         </form>
 
-        <!-- Success Confirmation State -->
-        <div class="modal-success-state" id="modalSuccessState">
-          <div class="success-icon-circle">&#10003;</div>
-          <h4 class="success-title">Thank you!</h4>
-          <p class="success-text">
-            Your reservation request has been received. Our team will contact you shortly to confirm your booking.
-          </p>
-
-          <div class="success-details-box">
-            <div class="success-row">
-              <span>Reference Code:</span>
-              <span id="confRefCode">AST-829141</span>
-            </div>
-            <div class="success-row">
-              <span>Name:</span>
-              <span id="confName">Guest</span>
-            </div>
-            <div class="success-row">
-              <span>Date &amp; Time:</span>
-              <span id="confDate">-</span>
-            </div>
-            <div class="success-row">
-              <span>Guests &amp; Event:</span>
-              <span id="confGuests">-</span>
-            </div>
+        <!-- Success State -->
+        <div class="modal-success" id="modalSuccessState">
+          <div class="success-circle">✓</div>
+          <h4 class="success-heading">You're All Set!</h4>
+          <p class="success-sub">Your reservation request is received. Our team will contact you within 30 minutes to confirm.</p>
+          <div class="success-info">
+            <div class="success-row"><span>Reference Code:</span><span id="confRefCode">AST-000000</span></div>
+            <div class="success-row"><span>Name:</span><span id="confName">—</span></div>
+            <div class="success-row"><span>Date &amp; Time:</span><span id="confDate">—</span></div>
+            <div class="success-row"><span>Guests / Event:</span><span id="confGuests">—</span></div>
           </div>
-
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="#" class="btn-gold" id="btnSendWhatsappConfirmation" target="_blank" rel="noopener noreferrer" style="background-color: #25D366; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-              <span>Instant Confirmation via WhatsApp</span>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <a href="#" class="btn btn-lg" id="btnSendWhatsappConfirmation" target="_blank" rel="noopener noreferrer" style="background-color:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.4);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Send WhatsApp Confirmation
             </a>
-            <button class="btn-gold" id="btnCloseSuccess" style="background-color: #555;">Close Window</button>
+            <button class="btn btn-outline-terracotta" id="btnCloseSuccess">Close</button>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -758,5 +1296,6 @@
 
   <!-- JavaScript -->
   <script src="js/main.js"></script>
+
 </body>
 </html>
