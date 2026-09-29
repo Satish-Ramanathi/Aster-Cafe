@@ -309,8 +309,11 @@
         <div class="chk-step" id="chkStep4">
           <div class="chk-success">
             <div class="chk-success-icon">✓</div>
-            <h4 class="chk-success-title">Order Placed!</h4>
+            <h4 class="chk-success-title">Order Placed! 🎉</h4>
             <p class="chk-success-sub">Your reference is <strong id="chkRefCode">ORD-000000</strong>.<br>Our team will confirm via WhatsApp within 5 minutes.</p>
+            <div id="chkPaymentIdRow" style="background:var(--clr-cream-warm);border:1px solid var(--clr-cream-border);border-radius:var(--radius-sm);padding:8px 14px;margin-bottom:1rem;font-size:0.8rem;color:var(--clr-muted);text-align:left;">
+              Razorpay Payment ID: <strong id="chkPaymentId" style="color:var(--clr-charcoal);font-family:monospace;">Pending</strong>
+            </div>
             <div class="chk-loyalty-earned">
               <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               You earned <strong id="chkEarnedPts">0</strong> loyalty points!
@@ -1673,6 +1676,8 @@
     </div>
   </div>
 
+  <!-- Razorpay Payment Gateway -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <!-- JavaScript -->
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>

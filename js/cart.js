@@ -7,6 +7,15 @@
 
 'use strict';
 
+// ─────────────────────────────────────────────────────────────────────────────
+// RAZORPAY CONFIGURATION
+// Replace with your actual Razorpay Key ID from https://dashboard.razorpay.com
+// Mode: 'rzp_test_...' for testing, 'rzp_live_...' for production
+// NOTE: You MUST provide your Key ID — Aster Cafe cannot take live payments
+// without a registered Razorpay account (razorpay.com/in/business-account).
+// ─────────────────────────────────────────────────────────────────────────────
+const RAZORPAY_KEY_ID = 'rzp_test_REPLACE_WITH_YOUR_KEY'; // ← PASTE YOUR KEY HERE
+
 // ── PRODUCT CATALOG ──────────────────────────────────────────────────────────
 const CATALOG = {
   /* ── Coffee & Drinks ── */
@@ -154,36 +163,42 @@ function matchesFilters(tags, filters) {
 
 // ── CART DRAWER RENDERER ─────────────────────────────────────────────────────
 function renderCartDrawer() {
-  const list = document.getElementById('cartItemsList');
-  const emptyEl = document.getElementById('cartEmpty');
-  const footerEl = document.getElementById('cartFooter');
-  const badge = document.getElementById('cartBadge');
+  const list      = document.getElementById('cartItemsList');
+  const emptyEl   = document.getElementById('cartEmpty');
+  const footerEl  = document.getElementById('cartFooter');
+  const badge     = document.getElementById('cartBadge');
   const cartCount = document.getElementById('cartItemCount');
-  const totalEl = document.getElementById('cartTotal');
-  const pointsEl = document.getElementById('cartPointsEarn');
+  const totalEl   = document.getElementById('cartTotal');
+  const pointsEl  = document.getElementById('cartPointsEarn');
 
-  if (badge) badge.textContent = CartState.itemCount || '';
-  badge?.classList.toggle('hidden', CartState.itemCount === 0);
+  // ── Badge ─────────────────────────────────────────────────────────────────
+  if (badge) {
+    badge.textContent = CartState.itemCount > 0 ? CartState.itemCount : '';
+    badge.style.display = CartState.itemCount > 0 ? 'flex' : 'none';
+  }
 
   if (!list) return;
 
+  // ── EMPTY STATE ───────────────────────────────────────────────────────────
   if (!CartState.items.length) {
     list.innerHTML = '';
-    emptyEl?.classList.remove('hidden');
-    footerEl?.classList.add('hidden');
+    // Force show empty, force hide footer — override any inline styles
+    if (emptyEl)  emptyEl.style.display  = 'flex';
+    if (footerEl) footerEl.style.display = 'none';
     if (cartCount) cartCount.textContent = '0 items';
     return;
   }
 
-  emptyEl?.classList.add('hidden');
-  footerEl?.classList.remove('hidden');
+  // ── HAS ITEMS ─────────────────────────────────────────────────────────────
+  // Force hide empty state, force show footer
+  if (emptyEl)  emptyEl.style.display  = 'none';
+  if (footerEl) footerEl.style.display = '';
   if (cartCount) cartCount.textContent = `${CartState.itemCount} item${CartState.itemCount !== 1 ? 's' : ''}`;
 
   list.innerHTML = CartState.items.map(({ id, qty }) => {
     const p = CATALOG[id];
     if (!p) return '';
-    const stockLeft = p.stock - qty;
-    const maxed = stockLeft <= 0;
+    const maxed = (p.stock - qty) <= 0;
     return `
     <div class="cart-item" data-id="${id}">
       <img src="${p.img}" alt="${p.name}" class="cart-item-img" loading="lazy">
@@ -197,7 +212,7 @@ function renderCartDrawer() {
       <div class="cart-item-controls">
         <button class="cart-qty-btn" data-action="dec" data-id="${id}" aria-label="Decrease">−</button>
         <span class="cart-qty-num">${qty}</span>
-        <button class="cart-qty-btn ${maxed ? 'disabled' : ''}" data-action="inc" data-id="${id}" aria-label="Increase" ${maxed ? 'disabled' : ''}>+</button>
+        <button class="cart-qty-btn${maxed ? ' disabled' : ''}" data-action="inc" data-id="${id}" aria-label="Increase"${maxed ? ' disabled' : ''}>+</button>
         <button class="cart-remove-btn" data-id="${id}" aria-label="Remove item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
         </button>
@@ -205,19 +220,19 @@ function renderCartDrawer() {
     </div>`;
   }).join('');
 
-  if (totalEl) totalEl.textContent = formatPrice(CartState.total);
+  if (totalEl)  totalEl.textContent  = formatPrice(CartState.total);
   if (pointsEl) pointsEl.textContent = `+${CartState.totalPoints} loyalty points on this order`;
 
-  // Savings display
+  // Combo savings banner
   const savingsEl = document.getElementById('cartSavings');
   if (savingsEl) {
-    const hasBundleSaving = CartState.items.some(i => CATALOG[i.id]?.category === 'drinks') &&
-                            CartState.items.some(i => CATALOG[i.id]?.category === 'bakery');
-    if (hasBundleSaving) {
-      savingsEl.textContent = 'Combo discount applied: −₹30';
-      savingsEl.classList.remove('hidden');
+    const hasDrink  = CartState.items.some(i => CATALOG[i.id]?.category === 'drinks');
+    const hasBakery = CartState.items.some(i => CATALOG[i.id]?.category === 'bakery');
+    if (hasDrink && hasBakery) {
+      savingsEl.textContent    = 'Combo discount applied: −₹30 🎉';
+      savingsEl.style.display  = 'block';
     } else {
-      savingsEl.classList.add('hidden');
+      savingsEl.style.display  = 'none';
     }
   }
 }
@@ -552,6 +567,154 @@ function initCartDrawerEvents() {
   });
 }
 
+// ── RAZORPAY PAYMENT INTEGRATION ─────────────────────────────────────────────
+function launchRazorpay({ chkName, chkPhone, chkTime }) {
+  // Validate Razorpay is loaded
+  if (typeof Razorpay === 'undefined') {
+    showRazorpayFallback(chkName, chkPhone, chkTime);
+    return;
+  }
+
+  const orderTotal   = CartState.total;
+  const pointsToEarn = CartState.totalPoints;
+
+  // Build order snapshot before clearing cart
+  const { refCode, msg } = buildOrderWhatsApp(CartState.selectedPayment, chkName, chkPhone, chkTime);
+
+  const options = {
+    key:         RAZORPAY_KEY_ID,
+    amount:      orderTotal * 100,   // Razorpay expects paise (1 INR = 100 paise)
+    currency:    'INR',
+    name:        'Aster Cafe & Kitchen',
+    description: `Order ${refCode} — ${CartState.itemCount} item(s) · Pickup: ${chkTime || 'ASAP'}`,
+    image:       'assets/images/logo.png',
+
+    // ── Pre-fill customer details ──────────────────────────────────────────
+    prefill: {
+      name:    chkName,
+      contact: chkPhone,
+    },
+
+    // ── Brand theming ──────────────────────────────────────────────────────
+    theme: {
+      color:       '#C9714B',    // Aster terracotta brand color
+      backdrop_color: 'rgba(44,24,16,0.72)',
+    },
+
+    // ── Notes stored on Razorpay dashboard ────────────────────────────────
+    notes: {
+      ref_code:    refCode,
+      pickup_time: chkTime || 'ASAP',
+      items_count: CartState.itemCount,
+    },
+
+    // ── Modal settings ─────────────────────────────────────────────────────
+    modal: {
+      confirm_close: true,
+      escape:        true,
+      animation:     true,
+      ondismiss: function() {
+        // User closed Razorpay without paying — keep cart intact
+        console.info('[Aster Cart] Razorpay payment dismissed by user.');
+      },
+    },
+
+    // ── Payment methods to enable ──────────────────────────────────────────
+    config: {
+      display: {
+        blocks: {
+          banks: { name: 'UPI & Net Banking', instruments: [{ method: 'upi' }, { method: 'netbanking' }] },
+          cards: { name: 'Cards',             instruments: [{ method: 'card' }] },
+          wallets: { name: 'Wallets',         instruments: [{ method: 'wallet' }] },
+        },
+        sequence: ['block.banks', 'block.cards', 'block.wallets'],
+        preferences: { show_default_blocks: true },
+      },
+    },
+
+    // ── SUCCESS HANDLER ────────────────────────────────────────────────────
+    handler: function(response) {
+      const paymentId = response.razorpay_payment_id;
+
+      // Show step 4 success
+      showCheckoutStep(4);
+      const refEl = document.getElementById('chkRefCode');
+      const ptsEl = document.getElementById('chkEarnedPts');
+      const payEl = document.getElementById('chkPaymentId');
+      if (refEl) refEl.textContent = refCode;
+      if (ptsEl) ptsEl.textContent = pointsToEarn;
+      if (payEl) payEl.textContent = paymentId;
+
+      // Award loyalty points
+      CartState.awardPoints(pointsToEarn);
+      initLoyaltyDisplay();
+      showLoyaltyToast(pointsToEarn);
+
+      // Wire WhatsApp confirmation button with payment ID added
+      const enrichedMsg = msg + encodeURIComponent(`\n\n✅ Payment ID: ${paymentId}`);
+      const waLink = document.getElementById('chkWhatsappBtn');
+      if (waLink) waLink.href = `https://wa.me/918686745411?text=${enrichedMsg}`;
+
+      // Clear cart
+      CartState.clearCart();
+      renderCartDrawer();
+      updateAllCartCounters();
+    },
+  };
+
+  try {
+    const rzp = new Razorpay(options);
+    rzp.on('payment.failed', function(resp) {
+      const errCode = resp.error?.code || 'PAYMENT_FAILED';
+      const errDesc = resp.error?.description || 'Payment was not completed.';
+      showPaymentErrorToast(`${errCode}: ${errDesc}`);
+    });
+    rzp.open();
+  } catch (err) {
+    console.error('[Aster Cart] Razorpay init error:', err);
+    showPaymentErrorToast('Could not open payment window. Please try again.');
+  }
+}
+
+// Fallback when Razorpay script hasn't loaded (e.g. ad-blocker / offline)
+function showRazorpayFallback(chkName, chkPhone, chkTime) {
+  const { refCode, msg } = buildOrderWhatsApp('WhatsApp Pay', chkName, chkPhone, chkTime);
+  showCheckoutStep(4);
+  const refEl = document.getElementById('chkRefCode');
+  const ptsEl = document.getElementById('chkEarnedPts');
+  if (refEl) refEl.textContent = refCode;
+  if (ptsEl) ptsEl.textContent = CartState.totalPoints;
+
+  const waLink = document.getElementById('chkWhatsappBtn');
+  if (waLink) {
+    waLink.href        = `https://wa.me/918686745411?text=${msg}`;
+    waLink.textContent = '📲 Complete Order via WhatsApp';
+  }
+
+  // Show friendly notice
+  const note = document.createElement('p');
+  note.style.cssText = 'font-size:0.78rem;color:#8A7E78;margin-top:0.75rem;';
+  note.textContent   = 'Online payment is temporarily unavailable. Your order will be confirmed via WhatsApp.';
+  waLink?.parentElement?.appendChild(note);
+
+  CartState.awardPoints(CartState.totalPoints);
+  initLoyaltyDisplay();
+  showLoyaltyToast(CartState.totalPoints);
+  CartState.clearCart();
+  renderCartDrawer();
+  updateAllCartCounters();
+}
+
+function showPaymentErrorToast(message) {
+  const el  = document.getElementById('stockToast');
+  const msg = document.getElementById('stockToastMsg');
+  if (!el) return;
+  el.style.background = '#D32F2F';
+  if (msg) msg.textContent = message;
+  el.classList.add('active');
+  setTimeout(() => el.classList.remove('active'), 5000);
+}
+
 // ── CHECKOUT EVENTS ───────────────────────────────────────────────────────────
 function initCheckoutEvents() {
   const modal    = document.getElementById('checkoutModal');
@@ -587,37 +750,21 @@ function initCheckoutEvents() {
     } else if (step === 2) {
       showCheckoutStep(3);
     } else if (step === 3) {
-      // Validate and place order
+      // ── Validate customer details first ─────────────────────────────────
       const chkName  = document.getElementById('chkName')?.value.trim();
       const chkPhone = document.getElementById('chkPhone')?.value.trim();
       const chkTime  = document.getElementById('chkPickupTime')?.value;
+
       if (!chkName || !chkPhone) {
-        document.getElementById('chkFormError')?.classList.remove('hidden');
+        const errEl = document.getElementById('chkFormError');
+        if (errEl) errEl.style.display = 'block';
         return;
       }
-      document.getElementById('chkFormError')?.classList.add('hidden');
+      const errEl = document.getElementById('chkFormError');
+      if (errEl) errEl.style.display = 'none';
 
-      const { refCode, msg } = buildOrderWhatsApp(CartState.selectedPayment, chkName, chkPhone, chkTime);
-
-      // Show success
-      showCheckoutStep(4);
-      const refEl = document.getElementById('chkRefCode');
-      const ptsEl = document.getElementById('chkEarnedPts');
-      if (refEl) refEl.textContent = refCode;
-      if (ptsEl) ptsEl.textContent = CartState.totalPoints;
-
-      // Award points
-      CartState.awardPoints(CartState.totalPoints);
-      showLoyaltyToast(CartState.totalPoints);
-
-      // Open WhatsApp
-      const waLink = document.getElementById('chkWhatsappBtn');
-      if (waLink) waLink.href = `https://wa.me/918686745411?text=${msg}`;
-
-      // Clear cart
-      CartState.clearCart();
-      renderCartDrawer();
-      updateAllCartCounters();
+      // ── Launch Razorpay payment modal ────────────────────────────────────
+      launchRazorpay({ chkName, chkPhone, chkTime });
     }
   });
 
